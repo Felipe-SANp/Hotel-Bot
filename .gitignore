@@ -1,0 +1,52 @@
+# Archivos de entorno y variables sensibles
+.env
+.env.local
+.env.*.local
+**/.env
+
+# Archivos de configuración de IDEs y editores comunes
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Dependencias y builds (ej. Node.js, Python, etc.)
+node_modules/
+dist/
+build/
+*.log
+*.tmp
+*.lock
+
+# Archivos de sistema
+.DS_Store  # MacOS
+Thumbs.db  # Windows
+desktop.ini  # Windows
+
+# Archivos temporales
+*.swp
+*.swo
+*~
+
+# Configuración de Git (opcional)
+.git/
+
+# Archivos binarios
+*.exe
+*.dll
+*.so
+*.dylib
+*.out
+
+# Salidas de compilación en lenguajes como Java, C++, etc.
+*.class
+*.jar
+*.pyc
+*.o
+*.a
+
+# Configuración de tests y cobertura
+coverage/
+*.coverage
+.nyc_output/
+jest/
