@@ -1,10 +1,12 @@
-# Hotel-Bot: Hotel Reservation Chatbot for Telegram
+# Hotel-Bot: Chatbot for Telegram
 
 Hot-Bot es un chatbot de Telegram que automatiza el proceso de reservación de habitaciones para un hotel, permitiendo a los usuarios verificar disponibilidad, hacer y cancelar reservaciones, y consultar información de contacto del hotel. Este proyecto es simple, intuitivo y fácil de expandir.
 
-![alt text](resources/img/image-6.png)
+---
 
+![alt text](/Diagram/image.png)
 
+---
 ## Índice
 
 - [Características](#características)
@@ -105,8 +107,44 @@ La base de datos consta de las siguientes tablas:
 
 Ejemplo de diagrama relacional de la base de datos: 
 
-![alt text](resources/img/image.png)
-
+```mermaid
+erDiagram  
+    hotels {  
+        int hotel_id PK  
+        varchar name    
+        varchar address  
+        varchar phone  
+        varchar email  
+        varchar image_url  
+    }  
+    rooms {  
+        int8 room_id PK  
+        int8 hotel_id FK  
+        text room_type  
+        numeric price  
+        int capacity  
+        boolean availability  
+    }  
+    bookings {  
+        int8 booking_id PK  
+        int8 room_id FK  
+        int8 user_id  
+        timestamptz check_in_date  
+        timestamptz check_out_date  
+        timestamptz created_at  
+        text status  
+    }  
+    users {  
+        int8 user_id PK  
+        text username  
+        text phone  
+        text email  
+    }  
+  
+    hotels ||--o{ rooms : has  
+    rooms ||--o{ bookings : books  
+    users ||--o{ bookings : makes  
+```
 ## Licencia
 
 Este proyecto está bajo la licencia GNU GENERAL PUBLIC LICENSE. Consulta el archivo [LICENSE](LICENSE) para más detalles.
